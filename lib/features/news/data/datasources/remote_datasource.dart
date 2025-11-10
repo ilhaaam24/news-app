@@ -6,7 +6,7 @@ import 'package:news_app/core/shared_values.dart';
 import 'package:news_app/features/news/data/models/article_model.dart';
 import 'package:http/http.dart' as http;
 
-abstract class RemoteDatasource {
+abstract class ArticleRemoteDatasource {
   Future<List<ArticleModel>> getArticles(
     int page, {
     String? query,
@@ -14,7 +14,7 @@ abstract class RemoteDatasource {
   });
 }
 
-class ArticleRemoteDataSourceImpl extends RemoteDatasource {
+class ArticleRemoteDataSourceImpl extends ArticleRemoteDatasource {
   final http.Client client;
 
   ArticleRemoteDataSourceImpl(this.client);
@@ -26,7 +26,7 @@ class ArticleRemoteDataSourceImpl extends RemoteDatasource {
   }) async {
     final url = Uri.parse(
       "https://gnews.io/api/v4/top-headlines"
-      "?apikey=$api_key"
+      "?apikey=$apiKey"
       "&country=id"
       "&category=$category"
       "&page=$page"

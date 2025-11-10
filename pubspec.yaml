@@ -46,6 +46,10 @@ dependencies:
   connectivity_plus: ^7.0.0
   go_router: ^17.0.0
 
+  # test
+  mockito: ^5.5.1
+  build_runner: ^2.10.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
