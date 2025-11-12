@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:news_app/core/failur.dart';
-import 'package:news_app/features/news/data/datasources/remote_datasource.dart';
-import 'package:news_app/features/news/domain/entities/article.dart';
-import 'package:news_app/features/news/domain/repositories/article_repository.dart';
+import 'package:news_app/features/article/data/datasources/remote_datasource.dart';
+import 'package:news_app/features/article/domain/entities/article.dart';
+import 'package:news_app/features/article/domain/repositories/article_repository.dart';
 
 class ArticleRepositoryImpl extends ArticleRepository {
-  final ArticleRemoteDataSourceImpl articleRemoteDataSourceImpl;
+  final ArticleRemoteDatasource articleRemoteDataSource;
 
-  ArticleRepositoryImpl({required this.articleRemoteDataSourceImpl});
+  ArticleRepositoryImpl({required this.articleRemoteDataSource});
 
   @override
   Future<Either<Failur, List<Article>>> getArticles(
@@ -16,7 +16,7 @@ class ArticleRepositoryImpl extends ArticleRepository {
     String category = "general",
   }) async {
     try {
-      var resultArticle = await articleRemoteDataSourceImpl.getArticles(
+      var resultArticle = await articleRemoteDataSource.getArticles(
         page,
         query: query,
         category: category,

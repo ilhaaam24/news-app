@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:news_app/core/exception.dart';
 import 'package:news_app/core/shared_values.dart';
-import 'package:news_app/features/news/data/models/article_model.dart';
+import 'package:news_app/features/article/data/models/article_model.dart';
 import 'package:http/http.dart' as http;
 
 abstract class ArticleRemoteDatasource {
@@ -15,7 +15,7 @@ abstract class ArticleRemoteDatasource {
 }
 
 class ArticleRemoteDataSourceImpl extends ArticleRemoteDatasource {
-  final http.Client client;
+  http.Client client;
 
   ArticleRemoteDataSourceImpl(this.client);
   @override

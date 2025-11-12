@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 import 'package:news_app/core/exception.dart';
 import 'package:news_app/core/shared_values.dart';
-import 'package:news_app/features/news/data/datasources/remote_datasource.dart';
-import 'package:news_app/features/news/data/models/article_model.dart';
+import 'package:news_app/features/article/data/datasources/remote_datasource.dart';
+import 'package:news_app/features/article/data/models/article_model.dart';
 
 import 'article_test.mocks.dart';
 
@@ -63,6 +63,7 @@ void main() {
             query: query,
             category: category,
           );
+          print(res);
           expect(res, [article]);
           // testing berhasil
           // pasti terjadi
@@ -113,7 +114,6 @@ void main() {
             category: category,
           );
 
-          print(res);
           expect(res, [article]);
         } catch (e) {
           fail("tidak terjadi");

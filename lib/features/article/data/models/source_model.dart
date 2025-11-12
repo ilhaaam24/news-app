@@ -1,4 +1,4 @@
-import 'package:news_app/features/news/domain/entities/source.dart';
+import 'package:news_app/features/article/domain/entities/source.dart';
 
 class SourceModel extends Source {
   const SourceModel({

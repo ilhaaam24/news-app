@@ -1,5 +1,5 @@
-import 'package:news_app/features/news/data/models/source_model.dart';
-import 'package:news_app/features/news/domain/entities/article.dart';
+import 'package:news_app/features/article/data/models/source_model.dart';
+import 'package:news_app/features/article/domain/entities/article.dart';
 
 class ArticleModel extends Article {
   const ArticleModel({
