@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => myInjection.get<ArticleBloc>()),
       ],
       child: MaterialApp.router(
+        
         routerConfig: MyRouter().router,
         debugShowCheckedModeBanner: false,
       ),
