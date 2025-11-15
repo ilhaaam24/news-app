@@ -17,3 +17,10 @@ class GetDetailarticle extends ArticleEvent {
   @override
   List<Object?> get props => [id];
 }
+
+class GetAllArticleByCategory extends ArticleEvent {
+  final String category;
+  GetAllArticleByCategory(this.category);
+  @override
+  List<Object?> get props => [category];
+}

@@ -3,14 +3,18 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:news_app/core/failur.dart';
 import 'package:news_app/features/article/domain/entities/article.dart';
+import 'package:news_app/features/article/domain/usecases/get_article_by_category.dart';
+
 import 'package:news_app/features/article/domain/usecases/get_articles.dart';
 
 part 'article_event.dart';
 part 'article_state.dart';
 
 class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
+  final GetArticleByCategory getAllArticleByCategory;
   final GetArticles getArticles;
-  ArticleBloc(this.getArticles) : super(ArticleEmpty()) {
+  ArticleBloc(this.getArticles, this.getAllArticleByCategory)
+    : super(ArticleEmpty()) {
     on<ArticleEvent>((event, emit) async {
       if (event is GetAllArticle) {
         emit(ArticleLoading());
@@ -27,6 +31,23 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
           },
           (rightresult) {
             emit(AllArticleLoaded(rightresult));
+          },
+        );
+      }
+      if (event is GetAllArticleByCategory) {
+        emit(ArticleLoading());
+
+        Either<Failur, List<Article>> result = await getAllArticleByCategory
+            .execute(event.category);
+
+        print(result);
+
+        result.fold(
+          (leftResul) {
+            emit(ArticleError("Cannot get articles"));
+          },
+          (rightresult) {
+            emit(AllArticleByCategoryLoaded(rightresult));
           },
         );
       }

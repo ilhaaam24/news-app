@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/methods.dart';
 import 'package:news_app/features/article/presentation/bloc/article_bloc.dart';
+import 'package:news_app/features/article/presentation/widgets/custom_bottom_navigation_bar.dart';
 
 class AllArticlePage extends StatelessWidget {
   const AllArticlePage({super.key});
@@ -9,55 +10,7 @@ class AllArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        currentIndex: 0,
-        selectedIconTheme: IconThemeData(color: Colors.black),
-        selectedLabelStyle: const TextStyle(
-          color: Colors.black,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
-        unselectedLabelStyle: const TextStyle(
-          color: Colors.black,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
-        onTap: (value) {
-          if (value == 0) {
-            Navigator.pushNamed(context, '/');
-          } else if (value == 1) {
-            Navigator.pushNamed(context, '/explore_page');
-          } else if (value == 2) {
-            Navigator.pushNamed(context, '/bookmark_page');
-          } else if (value == 3) {
-            Navigator.pushNamed(context, '/profile_page');
-          }
-        },
-        showSelectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled, color: Colors.grey.shade800),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore_outlined, color: Colors.grey.shade800),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.bookmark_outline_outlined,
-              color: Colors.grey.shade800,
-            ),
-            label: 'Bookmark',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outlined, color: Colors.grey.shade800),
-            label: 'Profile',
-          ),
-        ],
-      ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
@@ -145,11 +98,10 @@ class AllArticlePage extends StatelessWidget {
                                 ),
                               ),
                               Row(
-                                spacing: 4,
                                 children: [
                                   Icon(
                                     Icons.access_time_outlined,
-                                    color: Colors.grey,
+                                    color: Colors.grey.shade900,
                                     size: 14,
                                   ),
 

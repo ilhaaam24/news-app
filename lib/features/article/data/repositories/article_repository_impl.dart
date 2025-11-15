@@ -12,13 +12,27 @@ class ArticleRepositoryImpl extends ArticleRepository {
   @override
   Future<Either<Failur, List<Article>>> getArticles(
     int page, {
-    String? query,
     String category = "general",
   }) async {
     try {
       var resultArticle = await articleRemoteDataSource.getArticles(
         page,
-        query: query,
+        category: category,
+      );
+      return Right(resultArticle);
+    } catch (e) {
+      return left(Failur());
+    }
+  }
+
+  @override
+  Future<Either<Failur, List<Article>>> getAllArticleByCategory(
+    String category, {
+    int page = 1,
+  }) async {
+    try {
+      var resultArticle = await articleRemoteDataSource.getArticleByCategory(
+        page: page,
         category: category,
       );
       return Right(resultArticle);
