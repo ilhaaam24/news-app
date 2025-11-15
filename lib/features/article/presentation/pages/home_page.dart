@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/features/article/presentation/bloc/article_bloc.dart';
 import 'package:news_app/features/article/presentation/widgets/custom_bottom_navigation_bar.dart';
 import 'package:news_app/features/article/presentation/widgets/latest_article_card.dart';
@@ -127,10 +128,15 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const Spacer(),
-                        Text(
-                          'See all',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: Colors.grey[700],
+                        GestureDetector(
+                          onTap: () {
+                            context.goNamed("trending_article");
+                          },
+                          child: Text(
+                            'See all',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: Colors.grey[700],
+                            ),
                           ),
                         ),
                       ],

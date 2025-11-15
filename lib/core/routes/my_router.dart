@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:news_app/features/article/presentation/pages/all_article_page.dart';
 import 'package:news_app/features/article/presentation/pages/detail_article_page.dart';
 import 'package:news_app/features/article/presentation/pages/home_page.dart';
+import 'package:news_app/features/article/presentation/pages/trending_page.dart';
 
 class MyRouter {
   get router => GoRouter(
@@ -11,6 +12,14 @@ class MyRouter {
         path: '/',
         name: "home",
         pageBuilder: (context, state) => NoTransitionPage(child: HomePage()),
+        routes: [
+          GoRoute(
+            path: '/trending-article',
+            name: "trending_article",
+            pageBuilder: (context, state) =>
+                NoTransitionPage(child: TrendingPage()),
+          ),
+        ],
       ),
       GoRoute(
         path: '/all-article',
