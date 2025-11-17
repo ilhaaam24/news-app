@@ -23,8 +23,6 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
           event.page,
         );
 
-        print(result);
-
         result.fold(
           (leftResul) {
             emit(ArticleError("Cannot get articles"));
@@ -39,8 +37,6 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
 
         Either<Failur, List<Article>> result = await getAllArticleByCategory
             .execute(event.category);
-
-        print(result);
 
         result.fold(
           (leftResul) {

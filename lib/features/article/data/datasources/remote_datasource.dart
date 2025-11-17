@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:news_app/core/exception.dart';
 import 'package:news_app/core/shared_values.dart';

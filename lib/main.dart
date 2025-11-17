@@ -7,6 +7,7 @@ import 'package:news_app/injection.dart';
 import 'package:news_app/observer.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await init();
   Bloc.observer = MyObserver();
   runApp(const MyApp());

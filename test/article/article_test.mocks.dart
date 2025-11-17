@@ -12,7 +12,8 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
 import 'package:news_app/features/article/data/datasources/remote_datasource.dart'
     as _i3;
-import 'package:news_app/features/article/data/models/article_model.dart' as _i5;
+import 'package:news_app/features/article/data/models/article_model.dart'
+    as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -57,6 +58,25 @@ class MockArticleRemoteDatasource extends _i1.Mock
               [page],
               {#query: query, #category: category},
             ),
+            returnValue: _i4.Future<List<_i5.ArticleModel>>.value(
+              <_i5.ArticleModel>[],
+            ),
+            returnValueForMissingStub: _i4.Future<List<_i5.ArticleModel>>.value(
+              <_i5.ArticleModel>[],
+            ),
+          )
+          as _i4.Future<List<_i5.ArticleModel>>);
+
+  @override
+  _i4.Future<List<_i5.ArticleModel>> getArticleByCategory({
+    int? page = 1,
+    String? category = 'general',
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#getArticleByCategory, [], {
+              #page: page,
+              #category: category,
+            }),
             returnValue: _i4.Future<List<_i5.ArticleModel>>.value(
               <_i5.ArticleModel>[],
             ),

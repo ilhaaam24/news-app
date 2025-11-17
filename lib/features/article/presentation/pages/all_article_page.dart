@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/core/methods.dart';
-import 'package:news_app/features/article/domain/entities/article.dart';
 import 'package:news_app/features/article/presentation/bloc/article_bloc.dart';
 import 'package:news_app/features/article/presentation/widgets/article_card.dart';
 import 'package:news_app/features/article/presentation/widgets/custom_bottom_navigation_bar.dart';

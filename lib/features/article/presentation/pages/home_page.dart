@@ -13,7 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String selectedCategory = "All";
+  String selectedCategory = "all";
+  TextEditingController searchController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final List categories = [
-      'All',
+      'all',
       'world',
       'nation',
       'business',
@@ -34,7 +35,6 @@ class _HomePageState extends State<HomePage> {
       'health',
     ];
     final theme = Theme.of(context);
-
     return Scaffold(
       bottomNavigationBar: CustomBottomNavigationBar(),
       backgroundColor: Colors.white,
@@ -94,6 +94,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 16),
 
                 TextFormField(
+                  controller: searchController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
