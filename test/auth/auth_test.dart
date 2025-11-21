@@ -5,7 +5,6 @@ import 'package:mockito/mockito.dart';
 import 'package:news_app/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'auth_test.mocks.dart';
 
-// Mock signIn result
 class MockUserCredential extends Mock implements UserCredential {}
 
 @GenerateMocks([FirebaseAuth, User])

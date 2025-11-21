@@ -40,4 +40,20 @@ class ArticleRepositoryImpl extends ArticleRepository {
       return left(Failur());
     }
   }
+
+  @override
+  Future<Either<Failur, List<Article>>> getArticleByQuery(
+    String query, {
+    int page = 1,
+  }) async {
+    try {
+      var resultArticle = await articleRemoteDataSource.getArticleByQuery(
+        page: page,
+        query: query,
+      );
+      return Right(resultArticle);
+    } catch (e) {
+      return left(Failur());
+    }
+  }
 }

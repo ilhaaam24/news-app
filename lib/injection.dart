@@ -4,6 +4,7 @@ import "package:news_app/features/article/data/datasources/remote_datasource.dar
 import "package:news_app/features/article/data/repositories/article_repository_impl.dart";
 import "package:news_app/features/article/domain/repositories/article_repository.dart";
 import "package:news_app/features/article/domain/usecases/get_article_by_category.dart";
+import "package:news_app/features/article/domain/usecases/get_article_by_query.dart";
 import "package:news_app/features/article/domain/usecases/get_articles.dart";
 import "package:news_app/features/article/presentation/bloc/article_bloc.dart";
 
@@ -15,7 +16,7 @@ Future<void> init() async {
 
   // Feature article
   // Bloc
-  myInjection.registerFactory(() => ArticleBloc(myInjection(), myInjection()));
+  myInjection.registerFactory(() => ArticleBloc(myInjection(), myInjection(), myInjection()));
   // Repository
   myInjection.registerFactory<ArticleRepository>(
     () => ArticleRepositoryImpl(articleRemoteDataSource: myInjection()),
@@ -23,6 +24,7 @@ Future<void> init() async {
   // usecase
   myInjection.registerLazySingleton(() => GetArticles(myInjection()));
   myInjection.registerLazySingleton(() => GetArticleByCategory(myInjection()));
+  myInjection.registerLazySingleton(() => GetArticleByQuery(myInjection()));
 
   // datasource
   myInjection.registerLazySingleton<ArticleRemoteDatasource>(

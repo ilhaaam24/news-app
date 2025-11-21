@@ -23,14 +23,17 @@ class LatestArticleCard extends StatelessWidget {
         child: Row(
           spacing: 8,
           children: [
-            Container(
-              height: 96,
-              width: 96,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: NetworkImage(articles.image),
-                  fit: BoxFit.cover,
+            Hero(
+              tag: articles.title,
+              child: Container(
+                height: 96,
+                width: 96,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: NetworkImage(articles.image),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

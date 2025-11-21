@@ -48,3 +48,11 @@ final class AllArticleByCategoryLoaded extends ArticleState {
   @override
   List<Object?> get props => [articles];
 }
+
+final class ArticleByQueryLoaded extends ArticleState {
+  final List<Article> articles;
+  ArticleByQueryLoaded(this.articles);
+
+  @override
+  List<Object?> get props => [articles];
+}

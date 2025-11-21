@@ -11,4 +11,8 @@ abstract class ArticleRepository {
     String category, {
     int page = 1,
   });
+  Future<Either<Failur, List<Article>>> getArticleByQuery(
+    String query, {
+    int page = 1,
+  });
 }
