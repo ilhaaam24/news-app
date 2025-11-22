@@ -255,8 +255,10 @@ class _HomePageState extends State<HomePage>
                     if (isSearching && state is ArticleByQueryLoaded) {
                       final articles = state.articles;
 
-                      if (articles.isEmpty)
+                      if (articles.isEmpty){
+
                         return const Text("No results found.");
+                      }
 
                       return Column(
                         children: List.generate(

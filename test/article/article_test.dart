@@ -63,7 +63,6 @@ void main() {
             query: query,
             category: category,
           );
-          print(res);
           expect(res, [article]);
           // testing berhasil
           // pasti terjadi
@@ -125,7 +124,7 @@ void main() {
         ).thenThrow(EmptyException("Data not found"));
 
         try {
-          var res = await remoteDataSourceImpl.getArticles(
+          await remoteDataSourceImpl.getArticles(
             page,
             query: query,
             category: category,
@@ -142,7 +141,7 @@ void main() {
         ).thenThrow(EmptyException("Internal server error"));
 
         try {
-          var res = await remoteDataSourceImpl.getArticles(
+           await remoteDataSourceImpl.getArticles(
             page,
             query: query,
             category: category,

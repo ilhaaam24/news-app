@@ -6,15 +6,21 @@ import 'package:news_app/features/article/presentation/pages/detail_article_page
 import 'package:news_app/features/article/presentation/pages/home_page.dart';
 import 'package:news_app/features/article/presentation/pages/trending_page.dart';
 import 'package:news_app/features/auth/presentation/pages/sign_in_page.dart';
+import 'package:news_app/features/auth/presentation/pages/sign_up_page.dart';
 
 class MyRouter {
   get router => GoRouter(
-    initialLocation: '/',
+    initialLocation: '/sign-in',
     routes: [
       GoRoute(
         path: '/sign-in',
         name: "sign_in",
         pageBuilder: (context, state) => MaterialPage(child: SignInPage()),
+      ),
+      GoRoute(
+        path: '/sign-up',
+        name: "sign_up",
+        pageBuilder: (context, state) => MaterialPage(child: SignUpPage()),
       ),
       GoRoute(
         path: '/',

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_app/features/auth/presentation/widgets/button.dart';
+import 'package:news_app/features/auth/presentation/widgets/form.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -10,7 +13,7 @@ class SignInPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 16),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -30,8 +33,28 @@ class SignInPage extends StatelessWidget {
                     maxLines: 2,
                     textWidthBasis: TextWidthBasis.longestLine,
                     overflow: TextOverflow.ellipsis,
-                    "Welcome back you’ve been missed",
+                    "Welcome back you’ve\nbeen missed",
                     style: TextStyle(fontSize: 20),
+                  ),
+
+                  SizedBox(height: 32),
+                  CustomFormField(label: "Username"),
+                  SizedBox(height: 20),
+                  CustomFormField(label: "Password", isPassword: true),
+                  SizedBox(height: 20),
+                  CustomFilledButton(title: "Sign In", onPressed: () {}),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don’t have an account?"),
+                      TextButton(
+                        onPressed: () {
+                          context.pushNamed("sign_up");
+                        },
+                        child: Text("Sign Up"),
+                      ),
+                    ],
                   ),
                 ],
               ),
